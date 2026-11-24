@@ -1,105 +1,146 @@
+<div align="center">
 
 # Java Core Engineering Lab
 
-A hands-on Java engineering laboratory focused on understanding the language, its runtime, data structures, memory management, and concurrent programming through practical software engineering challenges.
+**Concurrent Job Processing Engine, built from scratch with no frameworks.**
+
+`Java 25` · `Concurrency` · `JVM Internals` · `Collections` · `Generics` · `Streams` · `CompletableFuture` · `Thread Safety` · `Garbage Collection` · `JMH Benchmarks`
+
+<br>
+
+<img src="https://skillicons.dev/icons?i=java,maven,idea,vscode,git,github,linux&perline=7" alt="Technology stack" />
+
+</div>
+
+---
 
 ## Overview
 
-This project explores Java beyond syntax and basic programming exercises.
+A hands-on Java engineering laboratory focused on understanding the language, its runtime, data structures, memory management, and concurrent programming through practical software engineering challenges.
 
-The main objective is to develop a deeper understanding of Java and its runtime environment by designing and implementing a concurrent job processing engine from scratch, without relying on application frameworks such as Spring Boot.
+This project explores Java beyond syntax and basic exercises. The goal is to build a deeper understanding of how Java works internally by designing and implementing a **concurrent job processing engine from scratch**, without relying on application frameworks such as Spring Boot.
 
-The project emphasizes understanding how Java works internally, making informed engineering decisions, and applying core language concepts to real-world backend problems.
+The emphasis is on making informed engineering decisions and applying core language concepts to real-world backend problems.
+
+---
 
 ## Main Project: Concurrent Job Processing Engine
 
-The laboratory will progressively build a reusable task processing engine capable of:
+The laboratory progressively builds a reusable task processing engine capable of:
 
-- Registering and managing tasks.
-- Supporting task priorities and scheduling.
-- Processing multiple tasks concurrently.
-- Tracking task execution states.
-- Supporting task cancellation.
-- Handling execution failures and retries.
-- Producing processing statistics.
+- Registering and managing tasks
+- Supporting task priorities and scheduling
+- Processing multiple tasks concurrently
+- Tracking execution states (`PENDING`, `RUNNING`, `COMPLETED`, `FAILED`)
+- Supporting task cancellation
+- Handling failures and retries
+- Producing processing statistics
 
-The engine will serve as a practical environment for exploring Java fundamentals and concurrency.
+The engine is the practical environment used to explore Java fundamentals and concurrency.
+
+---
 
 ## Learning Objectives
 
-### Java Core & Object-Oriented Programming
-- Classes, interfaces, and abstractions.
-- Encapsulation, inheritance, and composition.
-- Records, enums, and immutability.
-- Generics and exception handling.
+<details open>
+<summary><b>Java Core and Object-Oriented Programming</b></summary>
 
-### Collections & Data Structures
-- Java Collections Framework.
-- List, Set, Map, and Queue.
-- HashMap and HashSet internals.
-- equals() and hashCode().
-- Comparable and Comparator.
-- Streams and Collectors.
+- Classes, interfaces, and abstractions
+- Encapsulation, inheritance, and composition
+- Records, enums, and immutability
+- Generics and exception handling
 
-### JVM & Memory Management
-- JVM architecture and execution lifecycle.
-- Stack and Heap memory.
-- Garbage Collection.
-- Object lifecycle and memory profiling.
+</details>
 
-### Concurrency & Asynchronous Programming
-- Threads and Runnable.
-- Callable and Future.
-- ExecutorService and ThreadPoolExecutor.
-- Synchronization and thread safety.
-- Race conditions and deadlocks.
-- Locks and atomic variables.
-- CompletableFuture.
+<details open>
+<summary><b>Collections and Data Structures</b></summary>
 
-### Testing & Performance
-- Unit testing with JUnit 5.
-- Mocking with Mockito.
-- Concurrency testing.
-- Performance benchmarking with JMH.
+- Java Collections Framework
+- `List`, `Set`, `Map`, and `Queue`
+- `HashMap` and `HashSet` internals
+- `equals()` and `hashCode()`
+- `Comparable` and `Comparator`
+- Streams and Collectors
 
-## Technology Stack
+</details>
 
-| Technology | Purpose |
-|---|---|
-| Java 25 LTS | Core programming language |
-| Maven | Build and dependency management |
-| Maven Wrapper | Reproducible Maven execution |
-| JUnit 5 | Automated testing |
-| Mockito | Mocking and test isolation |
-| JMH | Performance benchmarking |
-| IntelliJ IDEA | Development environment |
+<details open>
+<summary><b>JVM and Memory Management</b></summary>
+
+- JVM architecture and execution lifecycle
+- Stack and Heap memory
+- Garbage Collection
+- Object lifecycle and memory profiling
+
+</details>
+
+<details open>
+<summary><b>Concurrency and Asynchronous Programming</b></summary>
+
+- Threads and `Runnable`
+- `Callable` and `Future`
+- `ExecutorService` and `ThreadPoolExecutor`
+- Synchronization and thread safety
+- Race conditions and deadlocks
+- Locks and atomic variables
+- `CompletableFuture`
+
+</details>
+
+<details open>
+<summary><b>Testing and Performance</b></summary>
+
+- Unit testing with JUnit 5
+- Mocking with Mockito
+- Concurrency testing
+- Performance benchmarking with JMH
+
+</details>
+
+---
+
+## Engineering Questions This Lab Answers
+
+| # | Question | Concept |
+|:-:|---|---|
+| 1 | How do we guarantee two threads never execute the same task at once? | Concurrency |
+| 2 | Which data structure best supports lookup by ID, priorities, and no duplicates? | Collections |
+| 3 | How do we prevent a task from being modified while it is running? | Immutability |
+| 4 | How do we run three independent operations in parallel and combine results? | `CompletableFuture` |
+| 5 | What happens to the JVM with thousands of tasks held in memory? | JVM / GC |
+
+---
 
 ## Project Structure
 
 ```text
 java-core-engineering-lab/
 ├── src/
-│   ├── main/java/
-│   └── test/java/
-├── benchmarks/
+│   ├── main/java/        # Engine source code
+│   └── test/java/        # Unit and concurrency tests
+├── benchmarks/           # JMH benchmarks
 ├── docs/
-│   ├── architecture/
-│   └── learning/
-├── .mvn/
+│   ├── architecture/     # Design decisions and diagrams
+│   └── learning/         # Study notes per concept
+├── .mvn/                 # Maven Wrapper config
 ├── mvnw
 ├── mvnw.cmd
 ├── pom.xml
+├── CONTRIBUTING.md
+├── LICENSE
 └── README.md
 ```
+
+---
 
 ## Development
 
 ### Prerequisites
 
-- JDK 25 or compatible Java 25 distribution.
-- Git.
+- JDK 25 (or a compatible Java 25 distribution)
+- Git
 
-Maven is provided through the Maven Wrapper.
+Maven is provided through the Maven Wrapper, so no local installation is needed.
 
 ### Build
 
@@ -113,9 +154,9 @@ Maven is provided through the Maven Wrapper.
 ./mvnw test
 ```
 
-## Engineering Principles
+---
 
-This laboratory follows a few fundamental principles:
+## Engineering Principles
 
 - Understand before implementing.
 - Prefer composition over unnecessary inheritance.
@@ -125,12 +166,43 @@ This laboratory follows a few fundamental principles:
 - Avoid unnecessary abstractions.
 - Prefer standard Java APIs before introducing external libraries.
 
+---
+
+## Technology Stack
+
+| Technology | Purpose |
+|---|---|
+| Java 25 LTS | Core programming language |
+| Maven | Build and dependency management |
+| Maven Wrapper | Reproducible Maven execution |
+| JUnit 5 | Automated testing |
+| Mockito | Mocking and test isolation |
+| JMH | Performance benchmarking |
+| IntelliJ IDEA | Development environment |
+
+---
+
+## Roadmap
+
+| Phase | Focus | Status |
+|:-:|---|:-:|
+| 1 | Project setup, repository, README, Maven Wrapper | Done |
+| 2 | Domain model: `Task`, `Priority`, `TaskStatus` (records, enums, immutability) | Next |
+| 3 | In-memory registry: `HashMap`, `HashSet`, `equals`/`hashCode` | Planned |
+| 4 | Priority scheduling: `PriorityQueue`, `Comparator` | Planned |
+| 5 | Concurrent execution: `ExecutorService`, thread safety | Planned |
+| 6 | Cancellation, retries, and failure handling | Planned |
+| 7 | `CompletableFuture` composition and statistics with Streams | Planned |
+| 8 | JVM profiling, GC analysis, and JMH benchmarks | Planned |
+
+---
+
 ## Project Status
 
-Currently in the initial setup and Java Core learning phase.
+Currently in the **initial setup and Java Core learning phase**. The implementation evolves progressively as new concepts are studied and applied.
 
-The implementation will evolve progressively as new concepts are studied and applied.
+---
 
 ## License
 
-This project is licensed under the MIT License.
+This project is licensed under the [MIT License](LICENSE).
