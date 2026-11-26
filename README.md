@@ -178,7 +178,7 @@ Maven is provided through the Maven Wrapper, so no local installation is needed.
 | JUnit 5 | Automated testing |
 | Mockito | Mocking and test isolation |
 | JMH | Performance benchmarking |
-| IntelliJ IDEA | Development environment |
+| Visual Studio Code | Development environment |
 
 ---
 
