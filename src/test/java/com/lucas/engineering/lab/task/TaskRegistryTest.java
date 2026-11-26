@@ -1,6 +1,7 @@
 package com.lucas.engineering.lab.task;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import java.util.List;
@@ -15,7 +16,8 @@ class TaskRegistryTest {
         Task emailTask = new Task(
                 "Send welcome email",
                 "Send Email",
-                () -> System.out.println("Sending email..."));
+                () -> {
+                });
 
         registry.register(emailTask);
 
@@ -30,7 +32,8 @@ class TaskRegistryTest {
         Task reportTask = new Task(
                 "Generate report",
                 "Generate monthly report",
-                () -> System.out.println("Generating report..."));
+                () -> {
+                });
 
         registry.register(reportTask);
 
@@ -46,5 +49,43 @@ class TaskRegistryTest {
         TaskRegistry registry = new TaskRegistry();
 
         assertThrows(NullPointerException.class, () -> registry.register(null));
+    }
+
+    @Test
+    void shoudRejectDuplicateTasks() {
+        TaskRegistry registry = new TaskRegistry();
+
+        Task reportTask = new Task(
+                "Generate report",
+                "Generate monthly report",
+                () -> {
+                });
+
+        registry.register(reportTask);
+
+        assertFalse(registry.register(reportTask));
+        assertEquals(1, registry.size());
+    }
+
+    @Test
+    void shouldAcceptDifferentTaskInstances() {
+        TaskRegistry registry = new TaskRegistry();
+
+        Task firstTask = new Task(
+                "Send Email",
+                "Send welcome email",
+                () -> {
+                });
+
+        Task secondTask = new Task(
+                "Send Email",
+                "Send welcome email",
+                () -> {
+                });
+
+        registry.register(firstTask);
+        registry.register(secondTask);
+
+        assertEquals(2, registry.size());
     }
 }

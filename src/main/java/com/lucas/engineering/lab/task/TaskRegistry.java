@@ -1,15 +1,16 @@
 package com.lucas.engineering.lab.task;
 
-import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Objects;
+import java.util.Set;
 
 public class TaskRegistry {
-    private final List<Task> tasks = new ArrayList<>();
+    private final Set<Task> tasks = new HashSet<>();
 
-    public void register(Task task) {
+    public boolean register(Task task) {
         Objects.requireNonNull(task, "Task cannot be null");
-        tasks.add(task);
+        return tasks.add(task);
     }
 
     public List<Task> getAll() {
