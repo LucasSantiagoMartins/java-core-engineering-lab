@@ -7,6 +7,7 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.UUID;
 
 import org.junit.jupiter.api.Test;
@@ -133,4 +134,51 @@ class TaskRegistryTest {
         assertNotEquals(firstTask, secondTask);
     }
 
+    @Test
+    void shouldFindTaskById() {
+        TaskRegistry registry = new TaskRegistry();
+        UUID taskId = UUID.randomUUID();
+        UUID unkUuid = UUID.randomUUID();   
+
+        Task emailTask = new Task(
+                taskId,
+                "Send Email",
+                "Send welcome email",
+                () -> {}
+        );
+        registry.register(emailTask);
+
+        Optional<Task> foundTask = registry.findById(taskId);
+        Optional<Task> unknownTask = registry.findById(unkUuid);
+
+        assertTrue(foundTask.isPresent());
+        assertEquals(emailTask, foundTask.get());
+        assertFalse(unknownTask.isPresent());
+    }
+
+    @Test
+    void shouldIgnoreDuplicateTasks() {
+        TaskRegistry registry = new TaskRegistry();
+        UUID taskId = UUID.randomUUID();
+
+        Task firstTask = new Task(
+                taskId,
+                "Send Email",
+                "Send welcome email",
+                () -> {}
+        );
+
+         Task secondTask = new Task(
+                taskId,
+                "Send Email",
+                "Send welcome email",
+                () -> {}
+        );
+
+        registry.register(firstTask);
+        registry.register(secondTask);
+
+        assertEquals(1, registry.size());
+
+    }
 }
