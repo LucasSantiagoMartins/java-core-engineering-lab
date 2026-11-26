@@ -187,14 +187,15 @@ Maven is provided through the Maven Wrapper, so no local installation is needed.
 | Phase | Focus | Status |
 |:-:|---|:-:|
 | 1 | Project setup, repository, README, Maven Wrapper | Done |
-| 2 | Domain model: `Task`, `Priority`, `TaskStatus` (records, enums, immutability) | Next |
-| 3 | In-memory registry: `HashMap`, `HashSet`, `equals`/`hashCode` | Planned |
-| 4 | Priority scheduling: `PriorityQueue`, `Comparator` | Planned |
-| 5 | Concurrent execution: `ExecutorService`, thread safety | Planned |
-| 6 | Cancellation, retries, and failure handling | Planned |
-| 7 | `CompletableFuture` composition and statistics with Streams | Planned |
-| 8 | JVM profiling, GC analysis, and JMH benchmarks | Planned |
-
+| 2 | Task model: `Task`, `ExecutableTask`, `TaskStatus` | Done |
+| 3 | In-memory task registry with ID lookup and duplicate protection | Done |
+| 4 | FIFO task queue with `Queue` and `ArrayDeque` | Done |
+| 5 | Task execution lifecycle and result tracking | Done |
+| 6 | Priority scheduling with `PriorityQueue` and `Comparator` | Planned |
+| 7 | Concurrent execution with `ExecutorService` and thread safety | Planned |
+| 8 | Cancellation, retries, and failure handling | Planned |
+| 9 | `CompletableFuture` composition and statistics with Streams | Planned |
+| 10 | JVM profiling, GC analysis, and JMH benchmarks | Planned |
 ---
 
 ## Project Status
