@@ -191,11 +191,12 @@ Maven is provided through the Maven Wrapper, so no local installation is needed.
 | 3 | In-memory task registry with ID lookup and duplicate protection | Done |
 | 4 | FIFO task queue with `Queue` and `ArrayDeque` | Done |
 | 5 | Task execution lifecycle and result tracking | Done |
-| 6 | Priority scheduling with `PriorityQueue` and `Comparator` | Planned |
-| 7 | Concurrent execution with `ExecutorService` and thread safety | Planned |
-| 8 | Cancellation, retries, and failure handling | Planned |
-| 9 | `CompletableFuture` composition and statistics with Streams | Planned |
-| 10 | JVM profiling, GC analysis, and JMH benchmarks | Planned |
+| 6 | Task scheduling: submit, register, queue, and execute tasks sequentially | Done |
+| 7 | Priority scheduling with `PriorityQueue` and `Comparator` | Planned |
+| 8 | Concurrent execution with `ExecutorService` and thread safety | Planned |
+| 9 | Cancellation, retries, and failure handling | Planned |
+| 10 | `CompletableFuture` composition and statistics with Streams | Planned |
+| 11 | JVM profiling, GC analysis, and JMH benchmarks | Planned |
 ---
 
 ## Project Status
