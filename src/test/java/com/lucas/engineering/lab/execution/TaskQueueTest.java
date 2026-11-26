@@ -1,4 +1,4 @@
-package com.lucas.engineering.lab.task;
+package com.lucas.engineering.lab.execution;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNull;
@@ -7,6 +7,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import org.junit.jupiter.api.Test;
 
 import com.lucas.engineering.lab.execution.TaskQueue;
+import com.lucas.engineering.lab.task.Task;
 
 class TaskQueueTest {
 

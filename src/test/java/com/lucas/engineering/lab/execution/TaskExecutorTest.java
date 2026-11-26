@@ -1,4 +1,4 @@
-package com.lucas.engineering.lab.task;
+package com.lucas.engineering.lab.execution;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
@@ -9,6 +9,8 @@ import org.junit.jupiter.api.Test;
 
 import com.lucas.engineering.lab.execution.ExecutionResult;
 import com.lucas.engineering.lab.execution.TaskExecutor;
+import com.lucas.engineering.lab.task.Task;
+import com.lucas.engineering.lab.task.TaskStatus;
 
 class TaskExecutorTest {
     TaskExecutor executor = new TaskExecutor();

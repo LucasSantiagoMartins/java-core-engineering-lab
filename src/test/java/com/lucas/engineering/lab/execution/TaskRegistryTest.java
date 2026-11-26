@@ -1,4 +1,4 @@
-package com.lucas.engineering.lab.task;
+package com.lucas.engineering.lab.execution;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
@@ -11,6 +11,9 @@ import java.util.Optional;
 import java.util.UUID;
 
 import org.junit.jupiter.api.Test;
+
+import com.lucas.engineering.lab.task.Task;
+import com.lucas.engineering.lab.task.TaskRegistry;
 
 class TaskRegistryTest {
     @Test
