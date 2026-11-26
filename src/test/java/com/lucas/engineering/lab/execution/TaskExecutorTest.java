@@ -7,8 +7,6 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import org.junit.jupiter.api.Test;
 
-import com.lucas.engineering.lab.execution.ExecutionResult;
-import com.lucas.engineering.lab.execution.TaskExecutor;
 import com.lucas.engineering.lab.task.Task;
 import com.lucas.engineering.lab.task.TaskStatus;
 
