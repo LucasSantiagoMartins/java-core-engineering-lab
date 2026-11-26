@@ -2,9 +2,12 @@ package com.lucas.engineering.lab.task;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.util.List;
+import java.util.UUID;
 
 import org.junit.jupiter.api.Test;
 
@@ -88,4 +91,46 @@ class TaskRegistryTest {
 
         assertEquals(2, registry.size());
     }
+
+    @Test
+    void shouldConsiderTaskWithSameIdAsEqual() {
+        UUID taskId = UUID.randomUUID();
+
+        Task firstTask = new Task(
+                taskId,
+                "Send Email",
+                "Send welcome email",
+                () -> {
+                });
+
+        Task secondTask = new Task(
+                taskId,
+                "Send Email",
+                "Send welcome email",
+                () -> {
+                });
+
+        assertTrue(firstTask.equals(secondTask));
+        assertEquals(firstTask.hashCode(), secondTask.hashCode());
+        assertEquals(firstTask, secondTask);
+    }
+
+    @Test
+    void shouldConsiderTaskWithDifferentIdsAsDifferent() {
+        Task firstTask = new Task(
+                "Send Email",
+                "Send welcome email",
+                () -> {
+                });
+
+        Task secondTask = new Task(
+                "Send Email",
+                "Send welcome email",
+                () -> {
+                });
+
+        assertFalse(firstTask.equals(secondTask));
+        assertNotEquals(firstTask, secondTask);
+    }
+
 }
