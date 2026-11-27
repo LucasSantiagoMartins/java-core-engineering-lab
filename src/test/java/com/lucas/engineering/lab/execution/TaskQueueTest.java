@@ -26,6 +26,24 @@ class TaskQueueTest {
     }
 
     @Test
+    void shouldTakeSubmittedTask() throws InterruptedException {
+        TaskQueue queue = new TaskQueue();
+
+        Task emailTask = new Task(
+                "Send welcome email",
+                "Send Email",
+                () -> {
+                });
+
+        queue.submit(emailTask);
+
+        Task result = queue.take();
+
+        assertEquals(result, emailTask);
+        assertTrue(queue.isEmpty());
+    }
+
+    @Test
     void shouldProcessTaskInFifoOrder() {
         TaskQueue queue = new TaskQueue();
 
